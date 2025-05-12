@@ -1,25 +1,25 @@
-const Queue = require('./queue')
+class Queue {
+  constructor() {
+    this.elements = []  
+  }
 
-describe('Queue', () => {
-  it('Deve criar uma fila', () => {
-    const queue = new Queue()
+  enqueue(item) {
+    this.elements.push(item)
+  }
 
-    expect(queue).toEqual({ elements: []})
-  })
+  dequeue() {
+    if (this.size() === 0) {
+      return undefined  
+    }
+    return this.elements.shift()  
+  }
 
-  it('Deve ser capaz de calcular o tamanho da fila', () => {
-    // Seu código aqui
-  })
+  first() {
+    return this.elements[0] 
+  }
+  size() {
+    return this.elements.length 
+  }
+}
 
-  it('Deve ser capaz de adicionar um item na fila', () => {
-   // Seu código aqui
-  })
-
-  it('Deve escolher o primeiro item da fila', () => {
-    // Seu código aqui
-  })
-
-  it('Deve remover o primeiro item da fila', () => {
-    // Seu código aqui
-  })
-})
+export default Queue
